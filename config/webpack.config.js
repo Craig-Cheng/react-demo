@@ -41,6 +41,16 @@ const babelRuntimeRegenerator = require.resolve('@babel/runtime/regenerator', {
   paths: [babelRuntimeEntry],
 })
 
+const babelPresetEnv = require.resolve('@babel/preset-env', {
+  paths: [babelRuntimeEntry],
+})
+const babelPluginTransformRunTime = require.resolve('@babel/plugin-transform-runtime', {
+  paths: [babelRuntimeEntry],
+})
+const babelProposalClassProperties = require.resolve('@babel/plugin-proposal-class-properties', {
+  paths: [babelRuntimeEntry],
+})
+
 // Some apps do not need the benefits of saving a web request, so not inlining the chunk
 // makes for a smoother build process.
 const shouldInlineRuntimeChunk = process.env.INLINE_RUNTIME_CHUNK !== 'false'
@@ -326,6 +336,9 @@ module.exports = function (webpackEnv) {
           babelRuntimeEntry,
           babelRuntimeEntryHelpers,
           babelRuntimeRegenerator,
+          babelPresetEnv,
+          babelPluginTransformRunTime,
+          babelProposalClassProperties,
         ]),
       ],
     },
