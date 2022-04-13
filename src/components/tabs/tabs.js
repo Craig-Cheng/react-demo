@@ -1,7 +1,10 @@
 import './tabs.less'
 import React from 'react'
+import { observer, inject } from 'mobx-react';
+// import store from '../../store/index';
 // import ReactDOM from 'react-dom';
-
+@inject('store')
+@observer
 class Tabs extends React.Component {
   constructor(props) {
     super(props)
@@ -10,9 +13,13 @@ class Tabs extends React.Component {
     }
   }
   chooseTab(index) {
+    console.log('index', index);
+    const { store } = this.props
     this.setState({
       selected: index,
     })
+    store.commonSetData({ key: 'tabIndex', value: index });
+    console.log('store', store);
   }
   render() {
     const tabsArray = [
@@ -36,6 +43,7 @@ class Tabs extends React.Component {
             >
               <img
                 className="tab-item__content w-[101px] h-[62px]"
+                alt="tab"
                 src={this.state.selected === index ? item.active : item.inactive}
               />
             </div>
@@ -45,11 +53,5 @@ class Tabs extends React.Component {
     )
   }
 }
-
-// function Tabs() {
-//   return (
-
-//   )
-// }
 
 export default Tabs
