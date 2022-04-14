@@ -1,6 +1,5 @@
 import './tabs.less'
 import React from 'react'
-// import ReactDOM from 'react-dom';
 
 class Tabs extends React.Component {
   constructor(props) {
@@ -17,12 +16,12 @@ class Tabs extends React.Component {
   render() {
     const tabsArray = [
       {
-        active: '/img/ta1.png',
-        inactive: '/img/ta12.png',
+        active: '/img/tabs/tab1.png',
+        inactive: '/img/tabs/tab12.png',
       },
       {
-        active: '/img/ta2.png',
-        inactive: '/img/ta22.png',
+        active: '/img/tabs/tab2.png',
+        inactive: '/img/tabs/tab22.png',
       },
     ]
     return (
@@ -32,8 +31,7 @@ class Tabs extends React.Component {
             <div
               className="tab-item w-[101px] h-[62px] justify-self-center !mr-[36px] last:!mr-0"
               onClick={this.chooseTab.bind(this, index)}
-              key={index}
-            >
+              key={index}>
               <img
                 className="tab-item__content w-[101px] h-[62px]"
                 src={this.state.selected === index ? item.active : item.inactive}
@@ -45,11 +43,5 @@ class Tabs extends React.Component {
     )
   }
 }
-
-// function Tabs() {
-//   return (
-
-//   )
-// }
 
 export default Tabs
