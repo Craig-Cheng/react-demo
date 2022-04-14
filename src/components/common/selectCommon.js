@@ -18,10 +18,12 @@ class SelectCommon extends React.Component {
       {
         active: '/img/tabs/tn_sc_xz1.png',
         inactive: '/img/tabs/tn_sc_wxz1.png',
+        id: 1,
       },
       {
         active: '/img/tabs/tn_sd_xz2.png',
         inactive: '/img/tabs/tn_sd_wxz2.png',
+        id: 2,
       },
     ]
     return (
@@ -34,7 +36,7 @@ class SelectCommon extends React.Component {
           <div className="item justify-self-center last:!mr-0 flex-auto basis-1/2">
             <img
               className="w-[100%]"
-              key={index}
+              key={item.id}
               src={this.state.selected === index ? item.active : item.inactive}
               onClick={this.selectTab.bind(this, index)}
             />
